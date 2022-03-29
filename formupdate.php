@@ -1,4 +1,6 @@
-<? if (isset($_GET['NIM'])) {
+<?
+session_start();
+if (isset($_GET['NIM'])) {
     $nim = $_GET['NIM'];
 } else {
     die("Error! NIM tidak ditemukan");
@@ -16,48 +18,55 @@ $data = mysqli_fetch_array($query);
 </head>
 
 <body>
-<?php
-    session_start();
+    <?php
     if ($_SESSION['status'] != "berhasil_login") {
         header("location:loginform.php?pesan=belum_login");
     }
     ?>
-    <h2>Update Data Mahasiswa</h2>
-    <form action="datasiswaupdate.php?NIM=<?= $nim ?>" method="post">
-        
-        <li>
-            <label>Nama</label>
-            <input type="text" name="nama" class="form-control">
-        </li>
-
-        <li>
-            <label>Umur</label>
-            <input type="number" name="umur" class="form-control">
-        </li>
-        
-        <input type="submit" class="btn btn-primary" name="Update" value="Update">
+    <br>
+    <h2 align="center">Update Data Mahasiswa</h2>
+    <form method="post" enctype="multipart/form-data" align="center">
+        <label>NIM&nbsp&nbsp&nbsp</label> <input type="text" name="nim"><br />
+        <label>Nama&nbsp</label> <input type="text" name="nama" maxlength="25"><br />
+        <label>Umur&nbsp</label> <input type="number" name="umur" min="0"><br />
+        <label>Foto&nbsp</label> <input type="file" name="foto" /><br />
+        <input type="submit" class="btn btn-primary" name="Update" value="submit" />
     </form>
+    <br>
     <?php
     if (isset($_POST['Update'])) {
+
+        $name_file = $_FILES['foto']['name'];
+        $tmp_name = $_FILES['foto']['tmp_name'];
+
+        echo $name_file;
+
+        $local_image = "foto/";
+        move_uploaded_file($tmp_name, $local_image . $name_file);
+
         $Nama = $_POST['nama'];
         $Umur = $_POST['umur'];
-        if($Nama == '' && $Umur == ''){
+        $foto = $_FILES['foto']['name'];
+
+        if ($Nama == '' && $Umur == '' && $foto == '') {
             echo "Inputan kosong, tidak dilakukan update apapun terhadap data";
-        }
-        else{
+        } else {
             if ($Nama == '') {
                 $Nama = $data["nama"];
-            } else if ($Umur == '') {
+            }
+            if ($Umur == '') {
                 $Umur = $data["umur"];
             }
-            // query SQL untuk insert data
-            $query = "UPDATE mahasiswa SET nama='$Nama', umur='$Umur' WHERE NIM = '$nim'";
-            $result = mysqli_query($connection, $query);
-            if ($result) {
-                echo "Update berhasil, silahkan tekan tombol refresh atau kembali untuk melihat perubahan";
-            } else {
-                echo "Update gagal";
+            if ($foto != ''){
+                unlink("foto/$data[foto]");
             }
+            else if ($foto == '') {
+                $foto = $data["foto"];
+            }
+
+            $query = "UPDATE mahasiswa SET nama='$Nama', umur='$Umur', foto='$foto' WHERE NIM = '$nim'";
+            $result = mysqli_query($connection, $query);
+            header('location:?navigation=datasiswa');
         }
     }
     ?>
@@ -65,7 +74,3 @@ $data = mysqli_fetch_array($query);
 </body>
 
 </html>
-
-<!-- <?php
-        include 'print.php';
-        ?> -->

@@ -29,7 +29,7 @@ $data = mysqli_fetch_array($query);
     }
     ?>
     
-    <h2>Detail Data Mahasiswa</h2>
+    <h2 align="center">Detail Data Mahasiswa</h2>
     <table border=0 cellpadding="4">
         <tr>
             <td>NIM</td>
@@ -45,7 +45,7 @@ $data = mysqli_fetch_array($query);
         </tr>
         <tr>
             <td></td>
-            <td> <a href="datasiswafoto.php">Kembali</a></td>
+            <td> <a href="?navigation=datasiswa">Kembali</a></td>
         </tr>
     </table>
 

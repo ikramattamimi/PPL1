@@ -1,0 +1,42 @@
+table,
+th,
+td,
+tr {
+  border: 1px solid #b0c4de;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+}
+
+table.table-striped {
+  width: 50%;
+  /* border: 1px solid grey; */
+}
+
+table.table-striped tbody tr:nth-child(odd) {
+  background-color: #cdf0ea;
+}
+
+table.table-striped tbody tr:nth-child(even) {
+  background-color: white;
+}
+
+input {
+  border: 1px solid #b0c4de;
+}
+
+a.a1 {
+  text-decoration: none;
+  color: black;
+}
+
+button.button1 {
+  background-color: #c1deae;
+  border: 0px solid;
+}
+
+button.button2 {
+  background-color: #219f94;
+  border: 0px solid;
+}
