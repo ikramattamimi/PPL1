@@ -40,6 +40,7 @@
                     <a href="?navigation=berita" class="navigation-link">&nbsp &nbsp BERITA </a>
                     <a href="?navigation=datasiswa" class="navigation-link">&nbsp &nbsp DATA SISWA </a>
                     <a href="logout.php" class="navigation-link">&nbsp &nbsp LOGOUT </a>
+                    <a href="pdf.php" class="navigation-link">&nbsp &nbsp PDF </a>
                 </h3>
             </th>
         </tr>

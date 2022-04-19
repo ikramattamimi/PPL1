@@ -25,61 +25,6 @@ $result = $conn->query($sql);
 
 <!DOCTYPE html>
 <html>
-
-<head>
-    <!-- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css"> -->
-
-    <!-- <style>
-        table,
-        th,
-        td, tr {
-            border: 1px solid #B0C4DE;
-            border-collapse: collapse;
-            margin-left: auto;
-            margin-right: auto;
-            align-self: center;
-        }
-
-        table.table-striped{
-            width: 50%;
-            /* border: 1px solid grey; */
-        }
-
-        table.table-striped tbody tr:nth-child(odd) {
-            background-color: #CDF0EA;
-        }
-
-        table.table-striped tbody tr:nth-child(even) {
-            background-color: white;
-        }
-
-        input {
-            border: 1px solid #B0C4DE;
-        }
-
-        a.a1{
-            text-decoration: none;
-            color: black;
-        }
-
-        button.button1 {
-            background-color: #C1DEAE;
-            border: 0px solid;
-        }
-
-        button.button2 {
-            background-color: #219F94;
-            border: 0px solid;
-        }
-        
-    </style> -->
-</head>
-
-
 <body>
     <table class="table table-striped">
         <tr>
@@ -89,6 +34,8 @@ $result = $conn->query($sql);
                 <input type="text" name="hasilInput" placeholder="Masukkan Nama">
             </form>
             &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<a href="index.php?navigation=insert">Insert</a>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<a href="excel/export.php">Export</a>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<a href="index.php?navigation=excel">Read From Excel</a>
         </tr>
         <tr align="center">
             <th>NIM</th>

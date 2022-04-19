@@ -23,7 +23,11 @@ if (isset($_GET['navigation'])) {
         }
     } else if ($_GET['navigation'] == "insert") {
         include 'insert.php';
+    } 
+    else if ($_GET['navigation'] == "excel") {
+        include 'excel/bacafile.php';
     }
+    
 } else {
     include 'home.php';
 }
